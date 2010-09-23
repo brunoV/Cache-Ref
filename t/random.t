@@ -39,6 +39,28 @@ for ( 1 .. 100 ) {
 
 cmp_ok( $hit, '>=', $miss / 3, "hit rate in linear scans($hit >= $miss / 3)" );
 
+{
+    # Tests shouldn't use a private method, but right now I can't think
+    # of other way to test that the expire method is actually removing
+    # the desired number of elements
+
+    my $c = Cache::Ref::Random->new( size => 100 );
+
+    for (1..10) {
+
+        $c->set( $_ => $_ ) for (1..100);
+
+        is $c->_index_size, 100;
+
+        $c->expire(50);
+
+        is $c->_index_size, 50;
+
+        $c->clear;
+    }
+
+}
+
 done_testing;
 
 # ex: set sw=4 et:
