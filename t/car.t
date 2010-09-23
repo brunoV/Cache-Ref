@@ -74,7 +74,7 @@ sub invariants {
     # I7    Due to demand paging, once the cache is full, it remains full from then on.
 }
 
-foreach my $class qw(Cache::Ref::CAR Cache::Ref::CART) {
+foreach my $class (qw(Cache::Ref::CAR Cache::Ref::CART)) {
     use_ok($class);
 
     my $meta = $class->meta;

@@ -7,7 +7,7 @@ use Test::More;
 use Test::Moose;
 
 #foreach my $impl qw(Cache::Ref::Util::LRU::Array Cache::Ref::Util::LRU::List) {
-foreach my $impl qw( Cache::Ref::Util::LRU::List) {
+foreach my $impl (qw(Cache::Ref::Util::LRU::List)) {
     use_ok($impl);
 
     isa_ok( my $l = $impl->new, $impl );

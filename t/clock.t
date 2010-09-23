@@ -8,7 +8,7 @@ use Test::More;
 use ok 'Cache::Ref::CLOCK';
 use ok 'Cache::Ref::GCLOCK';
 
-foreach my $impl qw(Cache::Ref::CLOCK Cache::Ref::GCLOCK) {
+foreach my $impl (qw(Cache::Ref::CLOCK Cache::Ref::GCLOCK)) {
     {
         my $c = $impl->new( size => 3 );
 

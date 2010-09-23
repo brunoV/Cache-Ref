@@ -67,10 +67,10 @@ has size => (
     required => 1,
 );
 
-foreach my $pool qw(mfu mru) { # t1, t2
+foreach my $pool (qw(mfu mru)) { # t1, t2
     has "_$pool" => ( is => "rw" ); # circular linked list tail
 
-    foreach my $counter qw(size history_size) {
+    foreach my $counter (qw(size history_size)) {
         has "_${pool}_$counter" => (
             #traits => [qw(Counter)], # too slow, not inlined, nytprof gives it about 60% of runtime =P
             is  => "ro",
