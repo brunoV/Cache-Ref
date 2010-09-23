@@ -51,8 +51,8 @@ sub set {
 sub expire {
     my ( $self, $how_many ) = @_;
 
-    my @s = ( 1 .. $self->_index_size );
-    my @slice = map { splice @s, int rand $#s, 1 } 1 .. ($how_many || 1);
+    my @s = ( 0 .. $self->_index_size - 1);
+    my @slice = map { splice @s, int rand @s, 1 } 1 .. ($how_many || 1);
 
     my @keys = ($self->_index_keys)[@slice];
 
