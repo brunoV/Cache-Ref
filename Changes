@@ -1,3 +1,6 @@
+0.04
+	- Replace deprecated use of 'for qw(...)' with 'for (qw(...))'
+
 0.03
 	- Make sure that Cache::Ref::Random::expire removes the desired number
 	  of items
